@@ -8,7 +8,7 @@ def main():
     print(f"Screen height: {SCREEN_HEIGHT}")
     pygame.init()
     screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
-    pygame.time.clock()
+    clock = pygame.time.Clock()
     dt = 0
     while True:
         log_state()
@@ -17,8 +17,7 @@ def main():
                 return
         screen.fill("black")
         pygame.display.flip()
-        result = pygame.time.clock.tick(60)
-        dt = result / 1000
+        dt = clock.tick(60) / 1000
         print(f"Delta time: {dt}")
 
 if __name__ == "__main__":
